@@ -1,0 +1,105 @@
+/* styles.css */
+
+.test-case {
+    border: 2px solid #ccc; /* Increased border width for better visibility */
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px; /* Rounded corners for aesthetics */
+    transition: border-color 0.3s ease; /* Smooth transition for color changes */
+}
+.test-case label {
+    display: block;
+    margin-top: 10px;
+    font-weight: normal;
+}
+.test-case textarea {
+    display: block;
+    margin: 5px 0 15px 0;
+    padding: 8px;
+    resize: none; /* Prevent manual resizing */
+    font-family: monospace;
+    font-size: 14px;
+    color: white;
+    box-sizing: border-box;
+    background-color: black;
+    overflow-y: auto; /* Enable scrolling if content exceeds max height */
+    height: 60px; /* Initial height */
+    max-height: 200px;
+}
+.test-case button {
+    margin-right: 10px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+/* Button Base Styles */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 12px;
+    font-size: 14px;
+    cursor: pointer;
+    color: #fff;
+    transition: background-color 0.3s ease;
+    margin-top: 5px;
+}
+
+/* Specific Button Styles */
+.btn-add {
+    background-color: #28a745; /* Green */
+    width: 100%;
+}
+.btn-run {
+    background-color: #ffc107; /* Yellow */
+    color: #212529; /* Dark text for better contrast */
+    width: 100%;
+}
+.btn-delete {
+    background-color: #dc3545; /* Red */
+}
+.btn-submit {
+    background-color: #007bff; /* Blue */
+}
+
+/* Hover Effects */
+.btn:hover {
+    opacity: 0.9;
+}
+
+/* Icon Styling */
+.btn svg {
+    margin-right: 5px; /* Space between icon and text */
+    fill: currentColor; /* Ensure SVGs inherit the button's text color */
+}
+
+/* New Classes for Test Results */
+.passed {
+    border-color: green;
+}
+.failed {
+    border-color: red;
+}
+.result-message {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* Spinner */
+.spinner {
+    visibility: hidden;
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border-left-color: #09f;
+    animation: spin 1s linear infinite;
+    margin-top: 10px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+

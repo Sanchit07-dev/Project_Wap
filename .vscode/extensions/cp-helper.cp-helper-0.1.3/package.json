@@ -1,0 +1,199 @@
+{
+	"name": "cp-helper",
+	"displayName": "CP Helper",
+	"description": "VS Code extension for competitive programming workflow",
+	"icon": "resources/main_logo.png",
+	"version": "0.1.3",
+	"engines": {
+		"vscode": "^1.93.0"
+	},
+	"publisher": "cp-helper",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/aleksabolic/cp-helper"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"*"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"viewsContainers": {
+			"activitybar": [
+				{
+					"id": "cp-helper",
+					"title": "CP Helper",
+					"icon": "resources/logo_black.png"
+				}
+			]
+		},
+		"views": {
+			"cp-helper": [
+				{
+					"type": "webview",
+					"id": "cp-helper.cpHelperView",
+					"name": "CP Helper"
+				}
+			]
+		},
+		"menus": {
+			"editor/title": [
+				{
+					"command": "cp-helper.markAsAC",
+					"when": "resourceLangId == cpp",
+					"group": "navigation"
+				},
+				{
+					"command": "cp-helper.markAsWA",
+					"when": "resourceLangId == cpp",
+					"group": "navigation"
+				},
+				{
+					"command": "cp-helper.addCategories",
+					"when": "resourceLangId == cpp",
+					"group": "navigation"
+				},
+				{
+					"command": "cp-helper.openLatexFile",
+					"when": "resourceLangId == cpp",
+					"group": "navigation"
+				}
+			],
+			"editor/context": [
+				{
+					"command": "cp-helper.copyCode",
+					"when": "resourceLangId == cpp",
+					"group": "9_cutcopypaste"
+				}
+			]
+		},
+		"commands": [
+			{
+				"command": "cp-helper.createNewFile",
+				"title": "Create New File",
+				"category": "CP Helper"
+			},
+			{
+				"command": "cp-helper.createContest",
+				"title": "Create Contest",
+				"category": "CP Helper"
+			},
+			{
+				"command": "cp-helper.markAsAC",
+				"title": "Mark as AC",
+				"category": "CP Helper"
+			},
+			{
+				"command": "cp-helper.markAsWA",
+				"title": "Mark as WA",
+				"category": "CP Helper"
+			},
+			{
+				"command": "cp-helper.addCategories",
+				"title": "Add Categories to Problem",
+				"category": "CP Helper"
+			},
+			{
+				"command": "cp-helper.copyCode",
+				"title": "Copy without Headers",
+				"category": "CP Helper"
+			},
+			{
+				"command": "cp-helper.openLatexFile",
+				"title": "Open LaTeX File",
+				"category": "CP Helper"
+			}
+		],
+		"keybindings": [
+			{
+				"command": "cp-helper.copyCode",
+				"key": "ctrl+alt+c",
+				"when": "editorTextFocus"
+			}
+		],
+		"commandPalette": [
+			{
+				"command": "cp-helper.addCategories",
+				"when": "editorLangId == cpp"
+			},
+			{
+				"command": "cp-helper.createNewFile",
+				"when": "extensionStatus == installed"
+			},
+			{
+				"command": "cp-helper.createContest",
+				"when": "extensionStatus == installed"
+			},
+			{
+				"command": "cp-helper.markAsAC",
+				"when": "editorLangId == cpp"
+			},
+			{
+				"command": "cp-helper.markAsWA",
+				"when": "editorLangId == cpp"
+			}
+		],
+		"configuration": {
+			"type": "object",
+			"title": "CP Helper",
+			"properties": {
+				"cp-helper.categories": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					},
+					"default": [
+						"Data Structures",
+						"Dynamic Programming",
+						"Greedy",
+						"Math",
+						"Binary search",
+						"Graphs"
+					],
+					"description": "List of categories available for selection."
+				},
+				"cp-helper.templatePath": {
+					"type": "string",
+					"default": "",
+					"description": "Path to your custom template file for new .cpp files."
+				},
+				"cp-helper.timeout": {
+					"type": "integer",
+					"default": 2000,
+					"description": "Program execution time limit in milliseconds."
+				},
+				"cp-helper.latexTemplatePath": {
+					"type": "string",
+					"default": "",
+					"description": "Path to your custom template file for new .tex files."
+				}
+			}
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "npm run compile && npm run lint",
+		"lint": "eslint src",
+		"test": "vscode-test"
+	},
+	"devDependencies": {
+		"@types/vscode": "^1.93.0",
+		"@types/mocha": "^10.0.7",
+		"@types/node": "20.x",
+		"@typescript-eslint/eslint-plugin": "^8.3.0",
+		"@typescript-eslint/parser": "^8.3.0",
+		"eslint": "^9.9.1",
+		"typescript": "^5.5.4",
+		"@vscode/test-cli": "^0.0.10",
+		"@vscode/test-electron": "^2.4.1"
+	},
+	"__metadata": {
+		"installedTimestamp": 1761992435259,
+		"targetPlatform": "undefined",
+		"size": 2068572
+	}
+}
