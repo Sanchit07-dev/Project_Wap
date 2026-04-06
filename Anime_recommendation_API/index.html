@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AniLearn | Anime Streaming UI</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@500;600;800&display=swap" rel="stylesheet">
+    <script src="anime.js" defer></script>
+</head>
+<body class="dark-theme">
+
+    <nav class="navbar">
+        <div class="nav-left">
+            <h1 class="logo">AniLearn<span class="accent">.</span></h1>
+        </div>
+        <div class="nav-center">
+            <div class="search-wrapper">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="search-input" placeholder="Search anime by title...">
+            </div>
+        </div>
+        <div class="nav-right">
+            <button class="nav-btn icon-btn">⚡</button>
+            <div class="lang-toggle">EN / JP</div>
+            <button id="theme-btn" class="nav-btn theme-toggle">🌓</button>
+            <div class="profile-icon"></div>
+        </div>
+    </nav>
+
+    <section class="hero" style="background-image: url('file:///Users/sanchitbaviskar07@gmail.com%20/.gemini/antigravity/brain/e076cccc-8cbc-43b4-82c7-49f2e35e1272/anime_hero_banner_1775485171634.png');">
+        <div class="hero-overlay"></div>
+        <div class="wrapper hero-content">
+            <h1 class="hero-title">Cosmic Resonance</h1>
+            <div class="hero-badges">
+                <span class="h-badge">Action</span>
+                <span class="h-badge">Sci-Fi</span>
+                <span class="h-badge">Movie</span>
+            </div>
+            <p class="hero-desc">When shooting stars fall from the deep blue and purple expanse of the galaxy, a new era of cosmic fighters must rise to protect the beauty of the celestial skies.</p>
+            <div class="hero-meta">
+                <span>⭐ 9.8</span>
+                <span>📅 2026</span>
+                <span class="quality">4K UHD</span>
+            </div>
+            <button class="btn-primary watch-now-btn">▶ Watch Now</button>
+        </div>
+    </section>
+
+    <section class="continue-watching wrapper mt-4">
+        <h2 class="section-title">Continue Watching</h2>
+        <div class="scroll-row">
+            <div class="cw-card">
+                <div class="cw-img" style="background-image: url('https://cdn.myanimelist.net/images/anime/1171/109222.jpg');"></div>
+                <div class="cw-info">
+                    <h4>Jujutsu Kaisen</h4>
+                    <div class="progress-bar"><div class="progress" style="width: 70%;"></div></div>
+                    <span class="time">16:24 / 24:00</span>
+                </div>
+            </div>
+            <div class="cw-card">
+                <div class="cw-img" style="background-image: url('https://cdn.myanimelist.net/images/anime/1908/135431.jpg');"></div>
+                <div class="cw-info">
+                    <h4>Bleach: TYBW</h4>
+                    <div class="progress-bar"><div class="progress" style="width: 90%;"></div></div>
+                    <span class="time">21:10 / 23:50</span>
+                </div>
+            </div>
+            <div class="cw-card">
+                <div class="cw-img" style="background-image: url('https://cdn.myanimelist.net/images/anime/1015/138006.jpg');"></div>
+                <div class="cw-info">
+                    <h4>Frieren</h4>
+                    <div class="progress-bar"><div class="progress" style="width: 30%;"></div></div>
+                    <span class="time">06:12 / 24:00</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="main-layout wrapper mt-4">
+        
+        <main class="content-left">
+            <div class="content-header">
+                <h2 class="section-title">Latest Updates</h2>
+                
+                <div class="controls-toolbar">
+                    <div class="filter-container">
+                        <label for="sort-select" class="sort-label">Sort:</label>
+                        <select id="sort-select">
+                            <option value="">Default</option>
+                            <option value="alphabetical">A-Z</option>
+                            <option value="alphabetical-desc">Z-A</option>
+                            <option value="rank">Rank (Low to High)</option>
+                            <option value="score">Score (High to Low)</option>
+                            <option value="episodes">Episodes</option>
+                        </select>
+                    </div>
+
+                    <div class="genre-container">
+                        <button class="genre-btn active" data-genre="all">Overview</button>
+                        <button class="genre-btn" data-genre="action">Action</button>
+                        <button class="genre-btn" data-genre="adventure">Adventure</button>
+                        <button class="genre-btn" data-genre="comedy">Comedy</button>
+                        <button class="genre-btn" data-genre="sci-fi">Sci-Fi</button>
+                        <button class="genre-btn" data-genre="drama">Drama</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="anime-list" class="anime-grid"></div>
+        </main>
+
+        <aside class="sidebar-right">
+            
+            <div class="sidebar-widget">
+                <h3 class="widget-title">🔥 Top Trending</h3>
+                <div class="trending-list">
+                    <div class="trend-item">
+                        <div class="rank-badge gold">1</div>
+                        <img src="https://cdn.myanimelist.net/images/anime/1015/138006l.webp" alt="Frieren">
+                        <div class="trend-info">
+                            <h4>Frieren: Beyond Journey's End</h4>
+                            <span class="tags">TV • SUB/DUB</span>
+                        </div>
+                    </div>
+                    <div class="trend-item">
+                        <div class="rank-badge silver">2</div>
+                        <img src="https://cdn.myanimelist.net/images/anime/1100/138338l.webp" alt="Apothecary">
+                        <div class="trend-info">
+                            <h4>The Apothecary Diaries</h4>
+                            <span class="tags">TV • SUB</span>
+                        </div>
+                    </div>
+                    <div class="trend-item">
+                        <div class="rank-badge bronze">3</div>
+                        <img src="https://cdn.myanimelist.net/images/anime/1935/127974l.webp" alt="One Piece">
+                        <div class="trend-info">
+                            <h4>One Piece</h4>
+                            <span class="tags">TV • 1080p</span>
+                        </div>
+                    </div>
+                     <div class="trend-item">
+                        <div class="rank-badge">4</div>
+                        <img src="https://cdn.myanimelist.net/images/anime/1208/94745l.webp" alt="FMA">
+                        <div class="trend-info">
+                            <h4>Fullmetal Alchemist: Brotherhood</h4>
+                            <span class="tags">TV • EN/JP</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-widget mt-3">
+                <h3 class="widget-title">📅 Airing Schedule</h3>
+                <div class="schedule-days">
+                    <span class="day active">Mon</span>
+                    <span class="day">Tue</span>
+                    <span class="day">Wed</span>
+                    <span class="day">Thu</span>
+                    <span class="day">Fri</span>
+                </div>
+                <div class="schedule-list mt-2">
+                    <div class="schedule-item">
+                        <span class="time">09:00</span>
+                        <div class="s-info">
+                            <h5>Demon Slayer: Hashira Training</h5>
+                            <span class="ep-badge">EP 8</span>
+                        </div>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="time">14:30</span>
+                        <div class="s-info">
+                            <h5>Solo Leveling</h5>
+                            <span class="ep-badge">EP 4</span>
+                        </div>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="time">18:00</span>
+                        <div class="s-info">
+                            <h5>Kaiju No. 8</h5>
+                            <span class="ep-badge">EP 12</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <section class="bottom-panels wrapper mt-4">
+        <div class="panel">
+            <h3 class="widget-title">New Releases</h3>
+            <div class="panel-list">
+                <div class="panel-item">
+                    <img src="https://cdn.myanimelist.net/images/anime/1439/136006.jpg" class="circle-img">
+                    <div class="p-info">
+                        <h4>Mashle: Magic and Muscles</h4>
+                        <span class="tags">TV • NEW</span>
+                    </div>
+                </div>
+                <div class="panel-item">
+                    <img src="https://cdn.myanimelist.net/images/anime/1000/135068.jpg" class="circle-img">
+                    <div class="p-info">
+                        <h4>Mushoku Tensei</h4>
+                        <span class="tags">TV • HD</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="panel">
+            <h3 class="widget-title">Upcoming Seasons</h3>
+            <div class="panel-list">
+                <div class="panel-item">
+                    <img src="https://cdn.myanimelist.net/images/anime/1764/126627.jpg" class="circle-img">
+                    <div class="p-info">
+                        <h4>Chainsaw Man S2</h4>
+                        <span class="tags">Preview</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel">
+            <h3 class="widget-title">Completed Masterpieces</h3>
+            <div class="panel-list">
+                <div class="panel-item">
+                    <img src="https://cdn.myanimelist.net/images/anime/1337/99013.jpg" class="circle-img">
+                    <div class="p-info">
+                        <h4>Hunter x Hunter</h4>
+                        <span class="tags">148 Ep • SUB</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer mt-4">
+        <p>&copy; 2026 AniLearn Streaming Platform. Crafted for Learning.</p>
+    </footer>
+
+</body>
+</html>
